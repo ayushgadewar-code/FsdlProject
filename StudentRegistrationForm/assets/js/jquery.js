@@ -1,16 +1,17 @@
 // jquery.js
 $(function () {
 
-  // 1) Change submit button text briefly (demonstrates jQuery text())
-$('#submitBtn').on('click', function () {
-    var $btn = $(this);
-    var original = $btn.text();
-
-    $btn.text('Processing...');
-
-    setTimeout(function () {
-        $btn.text(original);
-    }, 900);
+// Replace click-based demo with form submit demo to avoid conflict with validation
+$('#registrationForm').on('submit', function (e) {
+  var $btn = $('#submitBtn');
+  var original = $btn.text();
+  $btn.text('Processing...');
+  $btn.prop('disabled', true);
+  setTimeout(function () {
+    $btn.text(original);
+    $btn.prop('disabled', false);
+  }, 900);
+  // Do not call preventDefault here — validation.js controls actual prevention.
 });
 
   // 2) Set background-image using jQuery
@@ -44,10 +45,10 @@ $('#submitBtn').on('click', function () {
   $('#featureImage').attr('title', 'Student feature image');
   $('#submitBtn').attr('data-assignment', 'assignment-3');
 
-  // Extra: change text of swap button for clarity
-  $('#changeImageBtn').text('Swap Image');
+// Extra: change text of swap button for clarity
+$('#changeImageBtn').text('Swap Image');
 
-  $("#logo").attr("title","Magic Image");
-
+// Add attribute to logo image
+$("#magicImage").attr("title","Magic Image");
 
 });

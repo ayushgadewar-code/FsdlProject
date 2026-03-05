@@ -23,15 +23,23 @@
     var mutedEls = document.getElementsByClassName('muted');
     for (var j = 0; j < mutedEls.length; j++) mutedEls[j].style.opacity = '0.9';
 
-    // swap image
-    var changeImageBtn = document.getElementById('changeImageBtn');
-    if (changeImageBtn) {
-      changeImageBtn.addEventListener('click', function () {
-        var img = document.getElementById('featureImage');
-        if (!img) return;
-        img.src = img.src.includes('student1.jpg') ? 'assets/images/student2.jpg' : 'assets/images/student1.jpg';
-      });
+// swap image (use data-state attribute) - replace previous swap-image handler
+var changeImageBtn = document.getElementById('changeImageBtn');
+if (changeImageBtn) {
+  changeImageBtn.addEventListener('click', function () {
+    var img = document.getElementById('featureImage');
+    if (!img) return;
+    // initial state default 'a'
+    var state = img.getAttribute('data-state') || 'a';
+    if (state === 'a') {
+      img.src = 'assets/images/student2.jpg';
+      img.setAttribute('data-state', 'b');
+    } else {
+      img.src = 'assets/images/student1.jpg';
+      img.setAttribute('data-state', 'a');
     }
+  });
+}
 
     // move card
     var moveCardBtn = document.getElementById('moveCardBtn');
