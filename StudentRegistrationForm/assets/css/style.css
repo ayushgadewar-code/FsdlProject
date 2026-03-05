@@ -1,0 +1,113 @@
+:root{
+  --bg1: #0b1220;
+  --bg2: #0f1b2b;
+  --accent: #00d4ff;
+  --muted: #bfc8cf;
+  --glass: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+  --success: #6af39a;
+}
+
+/* Basic */
+*{box-sizing:border-box;font-family: 'Inter', sans-serif}
+body{
+  margin:0;
+  background: radial-gradient(circle at 10% 10%, #071016 0%, var(--bg1) 30%, var(--bg2) 100%);
+  color:#e6eef3;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+}
+
+/* NAV */
+.navbar .brand-title{font-weight:700;letter-spacing:0.2px;color:var(--accent)}
+.navbar img{object-fit:cover;}
+
+/* Glass cards */
+.glass{
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border:1px solid var(--glass-border);
+  border-radius:14px;
+  padding:18px;
+}
+
+/* Demo card */
+.demo-card h3{margin:0;font-size:1.3rem}
+.demo-card .muted{color:var(--muted);font-size:0.9rem}
+.demo-card img{height:220px;object-fit:cover;}
+
+/* Form card */
+.form-card{transition:transform .3s ease}
+.form-card:focus-within{transform:translateY(-6px)}
+.form-floating > .form-control{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+.form-floating > label{color:var(--muted)}
+.form-control:focus{border-color:var(--accent);box-shadow:0 6px 18px rgba(0,212,255,0.06)}
+
+/* Errors & help */
+.form-error{color:#ff6b6b;font-size:0.85rem;margin-top:6px}
+.form-help{color:var(--muted);font-size:0.82rem}
+
+/* Buttons */
+.btn-primary{
+  background: linear-gradient(90deg,#00c6ff,#0066ff);
+  border:none;
+  box-shadow:0 6px 18px rgba(0,102,255,0.16);
+}
+.btn-outline-light{border-color:rgba(255,255,255,0.08)}
+
+/* Password meter */
+.password-meter{
+  width:100%;
+  height:8px;
+  background:rgba(255,255,255,0.04);
+  border-radius:6px;
+  overflow:hidden;
+}
+.meter-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ff4d4d,#ffb86b);
+  transition:width .25s ease, background .25s ease;
+}
+
+/* Muted text */
+.muted{color:var(--muted)}
+
+/* Responsiveness */
+@media (max-width: 991px){
+  .demo-card img{height:180px}
+  .form-card{margin-top:10px}
+}
+@media (max-width: 575px){
+  .demo-card img{height:140px}
+  .brand-title{font-size:14px}
+}
+
+/* Footer */
+.footer{color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+
+/* utility and added styles */
+#profileImage { width:200px; height:200px; border-radius:50%; object-fit:cover; }
+#logo {
+  width: 36px;   /* or your original size */
+  height: 36px;
+}
+.logoContainer { text-align:center; margin-top:20px; }
+
+/* output box visible */
+.output-box {
+  color: #fff;
+  background: rgba(8,12,22,0.6);
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 40px;
+}
+
+/* error class for inputs */
+input.error, .form-control.error {
+  outline: none;
+  border: 2px solid #ff6b6b !important;
+}
+
+/* small utility */
+.text-danger{ color:#ff6b6b }

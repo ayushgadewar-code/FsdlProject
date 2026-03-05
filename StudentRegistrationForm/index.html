@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Registration — Assignment 3</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap (for layout & responsiveness) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-dark bg-dark py-2 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/images/logo.png" alt="Student Register logo" width="36" height="36" class="me-2 rounded-circle" id="magicImage">
+        <span class="brand-title">Student Register</span>
+      </a>
+
+      <div>
+        <button id="toggleThemeBtn" class="btn btn-outline-light btn-sm me-2">Change Title Color</button>
+        <button id="showFormDataBtn" class="btn btn-primary btn-sm">Show Form Data</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO + FORM -->
+  <main class="main-hero">
+    <div class="container py-5">
+      <div class="row gy-4 align-items-center">
+        <!-- Left: Visual & DOM demos -->
+        <div class="col-lg-5">
+          <div class="card glass p-4 shadow-lg demo-card">
+            <h3 id="mainHeading">Join the Future — Register Now</h3>
+            <p class="muted">Sleek dark UI with client-side validation & DOM demos.</p>
+
+            <img id="featureImage" src="assets/images/student1.jpg" alt="student" class="img-fluid rounded mb-3">
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-sm btn-outline-light" id="changeImageBtn">Swap Image</button>
+              <button class="btn btn-sm btn-outline-light" id="changeTextBtn">Change Heading</button>
+              <button class="btn btn-sm btn-outline-light" id="moveCardBtn">Move Card</button>
+            </div>
+
+            <hr class="my-3">
+
+            <div>
+              <button class="btn btn-success btn-sm me-2" onclick="addTextNode()">Add Node</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteNode()">Delete Node</button>
+              <div id="dynamicContainer" class="mt-2 small muted"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Registration form -->
+        <div class="col-lg-7">
+          <div class="card glass p-4 shadow-lg form-card">
+            <h4 class="mb-3" id="mainTitle">Student Registration</h4>
+
+            <form id="registrationForm" novalidate>
+              <!-- Username -->
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                <label for="username">Username</label>
+                <div class="form-error" id="err-username"></div>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+                <label for="email">Email</label>
+                <div class="form-error" id="err-email"></div>
+                <div class="form-help small muted">Format: letters@xxx.yy (exactly 3 letters between @ and .; 2–3 after .)</div>
+              </div>
+
+              <!-- Phone -->
+              <div class="mb-3 form-floating">
+                <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone">
+                <label for="phone">Phone (10 digits)</label>
+                <div class="form-error" id="err-phone"></div>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3 form-floating">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <label for="password">Password</label>
+                <div class="form-error" id="err-password"></div>
+                <div class="password-meter mt-2" id="pwdMeter">
+                  <div class="meter-bar" id="meterBar"></div>
+                </div>
+                <div class="form-help small muted">Min 7 chars, 1 uppercase, 1 digit, 1 special (&amp; $ # @)</div>
+              </div>
+
+              <!-- Confirm Password -->
+              <div class="mb-3 form-floating">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="form-error" id="err-confirm"></div>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary" id="submitBtn" type="submit">Register</button>
+              </div>
+
+              <div id="formMessage" class="mt-3 text-center"></div>
+            </form>
+
+            <!-- inline output area -->
+            <div id="formOutput" class="output-box mt-3"></div>
+
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </main>
+
+  <footer class="footer text-center py-3 muted small">
+    © 2026 — Student Registration (Assignment 3)
+  </footer>
+
+  <!-- jQuery (single CDN) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- custom scripts -->
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/dom.js"></script>
+  <script src="assets/js/validation.js"></script>
+
+  <!-- Bootstrap JS (optional, after your scripts) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
