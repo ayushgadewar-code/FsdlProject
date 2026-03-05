@@ -5,100 +5,145 @@
     <title>Smart Student Registration System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <!-- Google Font (external font example) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS (you used CDN earlier; keep it) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Internal CSS -->
+    <!-- Internal CSS (example) -->
     <style>
-        h1 {
-            color: darkblue;
-            text-align: center;
-        }
+        h1 { color: darkblue; text-align: center; font-family: 'Inter', sans-serif; }
     </style>
 </head>
 
-<body style="background-color:#f8f9fa;"> <!-- Inline CSS -->
+<body>
 
-<!-- Navigation -->
+<!-- Navigation (includes dropdown) -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">Student System</a>
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#top">
+      <img src="images/logo.png" alt="logo" width="36" height="36" class="me-2 rounded" />
+      <span>Student System</span>
+    </a>
 
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-            <li class="nav-item">
-                <a class="nav-link" href="pages/about.html" target="_blank">About</a>
-            </li>
-        </ul>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+        <!-- Dropdown (Bootstrap) -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="moreMenu" role="button" data-bs-toggle="dropdown">More</a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#formSection">Register</a></li>
+            <li><a class="dropdown-item" href="#features">Features</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="pages/about.html" target="_blank">About (new tab)</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
-<div class="container mt-4">
-
+<!-- Banner image (demonstrates images + background relationship) -->
+<header id="top" class="bg-banner d-flex align-items-center">
+  <div class="container text-white py-5">
     <h1>Student Registration Form</h1>
+    <p class="lead">A responsive page built using HTML5, CSS and Bootstrap.</p>
+    <a class="btn btn-light" href="#formSection">Go to Form</a>
+  </div>
+</header>
 
-    <p>This responsive page is built using HTML5, CSS and Bootstrap.</p>
+<main class="container mt-5">
 
-    <!-- Form -->
-    <form class="border p-4 bg-white">
+  <!-- Form Section -->
+  <section id="formSection" class="mb-5">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card p-4 mb-3 demo-border"> <!-- demonstrates border/padding/margin -->
+          <h2 class="h5">Register a Student</h2>
 
-        <div class="mb-3">
-            <label>Name:</label>
-            <input type="text" class="form-control">
-        </div>
+          <form class="mt-3" id="studentForm" action="#" method="post">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name:</label>
+              <input id="name" name="name" type="text" class="form-control" placeholder="Enter full name">
+            </div>
 
-        <div class="mb-3">
-            <label>Email:</label>
-            <input type="email" class="form-control">
-        </div>
+            <div class="mb-3">
+              <label for="emailField" class="form-label">Email:</label>
+              <input id="emailField" name="email" type="email" class="form-control" placeholder="you@example.com">
+            </div>
 
-        <div class="mb-3">
-            <label>Course:</label>
-            <select class="form-select">
+            <div class="mb-3">
+              <label for="course" class="form-label">Course:</label>
+              <select id="course" name="course" class="form-select">
                 <option>Web Development</option>
                 <option>Data Science</option>
                 <option>AI & ML</option>
-            </select>
+              </select>
+            </div>
+
+            <!-- inline CSS example (already present in original) -->
+            <button class="btn btn-primary" style="padding:10px 22px;">Register</button>
+          </form>
         </div>
 
-        <button class="btn btn-primary">Register</button>
+        <!-- small image to show use of <img> -->
+        <img src="images/student-sample.jpg" alt="student sample" class="img-fluid rounded shadow-sm" />
+      </div>
 
-    </form>
+      <div class="col-md-5">
+        <!-- Table + list examples -->
+        <div class="card p-3">
+          <h3 class="h6">Registered Students</h3>
 
-    <hr>
+          <table class="table table-sm table-bordered mt-2">
+            <thead class="table-light"><tr><th>Name</th><th>Course</th></tr></thead>
+            <tbody>
+              <tr><td>Ayush</td><td>Web Development</td></tr>
+            </tbody>
+          </table>
 
-    <!-- Table -->
-    <h2>Registered Students</h2>
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>Name</th>
-            <th>Course</th>
-        </tr>
-        <tr>
-            <td>Ayush</td>
-            <td>Web Development</td>
-        </tr>
-    </table>
+          <h4 id="features" class="h6 mt-3">Features</h4>
+          <ul>
+            <li>Responsive Design</li>
+            <li>Bootstrap Framework</li>
+            <li>Inline / Internal / External CSS</li>
+          </ul>
 
-    <!-- List -->
-    <h3>Features</h3>
-    <ul>
-        <li>Responsive Design</li>
-        <li>Bootstrap Framework</li>
-        <li>Multiple CSS Types</li>
-    </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- Demonstrate tag/class/id selectors -->
+  <section class="mb-5">
+    <p>This paragraph demonstrates a <strong>tag selector</strong> applied by external CSS.</p>
+    <div class="border p-3">
+      <p id="special">This paragraph has id="special" to demonstrate an ID selector.</p>
+    </div>
+  </section>
 
-<footer class="bg-dark text-white text-center p-3 mt-4">
-    © 2026 Smart Student Registration System
+  <!-- Links within page -->
+  <section>
+    <p>Quick links: <a href="#top">Top</a> · <a href="#formSection">Form</a> · <a href="#features">Features</a></p>
+  </section>
+
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+  © 2026 Smart Student Registration System
 </footer>
 
+<!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

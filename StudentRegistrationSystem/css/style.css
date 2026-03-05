@@ -1,19 +1,26 @@
-/* Tag Selector */
-p {
-    font-size: 18px;
+/* External CSS file - css/style.css */
+
+/* font family */
+body { font-family: 'Inter', Arial, sans-serif; }
+
+/* Tag selector example */
+p { font-size: 18px; color: #333; }
+
+/* Class selector example (custom) */
+.demo-border { border-radius: 10px; border: 1px solid #e3e6ea; }
+
+/* ID selector example */
+#special { color: #c44; font-weight: 600; }
+
+/* Background image example (shows background-position usage) */
+.bg-banner {
+  background-image: url('../images/banner.jpg'); /* local banner image */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Class Selector */
-.border {
-    border-radius: 10px;
-}
-
-/* ID Selector Example */
-#special {
-    color: red;
-}
-
-/* Background Example */
-body {
-    background-position: center;
+/* small responsive tweaks */
+@media (max-width: 576px) {
+  .bg-banner { padding: 3rem 1rem; text-align: center; }
 }
